@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popups_test</title>
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="icon" type="image/x-icon" href="./img/favicons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <header class="header">
+    <div class="header__row">
+        <div class="logo">
+            <img src="./img/header/logo-lg.png" alt="logo">
+        </div>
+        <nav class="header__nav">
+            <div class="header__nav-login">
+                <div class="header__nav-user">
+                    <div class="header__nav-user-img">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+								d="M15.9999 17.3333C19.6818 17.3333 22.6666 14.3486 22.6666 10.6667C22.6666 6.98477 19.6818 4 15.9999 4C12.318 4 9.33325 6.98477 9.33325 10.6667C9.33325 14.3486 12.318 17.3333 15.9999 17.3333Z"
+								stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+								d="M26.6666 28C26.6666 25.1711 25.5428 22.458 23.5424 20.4576C21.542 18.4572 18.8289 17.3334 15.9999 17.3334C13.1709 17.3334 10.4578 18.4572 8.45745 20.4576C6.45706 22.458 5.33325 25.1711 5.33325 28"
+								stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="header__nav-user-text">
+                        Привет, <span>Иван!</span>
+                    </div>
+                </div>
+                <a href="signup.html" class="header__nav-exit-btn">
+                    <div class="header__nav-exit-btn-text">Выйти</div>
+                    <div class="header__nav-exit-btn-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 19V5" stroke="#FF9200" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" />
+                            <path d="M13 6L7 12L13 18" stroke="#FF9200" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" />
+                            <path d="M7 12H21" stroke="#FF9200" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <div class="modal hidden" data-modal="popup">
+    <div class="modal__cross" id="modal__cross">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+				d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+        </svg>
+    </div>
+    <div class="popup__header-signup">
+        <div class="logo-sm">
+            <img src="./img/header/logo-lg.png" alt="logo">
+        </div>
+        <h2 class="popup__title">Зарегистрироваться</h2>
+    </div>
+    <div class="popup__form">
+        <div class="popup__form-row">
+            <label for="name">Имя</label>
+            <input class="popup__form-input name" type="text" placeholder="Введите имя">
+        </div>
+        <div class="popup__form-row">
+            <label for="email">Email</label>
+            <input class="popup__form-input email" type="text" placeholder="Введите электронную почту">
+        </div>
+        <div class="popup__form-row popup__form-row-password">
+            <label for="password">Пароль</label>
+            <input class="popup__form-input password typepass1" type="password" id="typepass"
+				placeholder="Придумайте пароль" />
+            <i class="form-toggler" data-pass id="toggler"></i>
+            <div class="message" id="message">
+                <div class="message-wrapper">
+                    <div class="pass-text">Не&#160;используйте личные данные, последовательности (1234)</div>
+                    <div class="message-row" id="strenght">
+                        <img class="pass-strenght" src="./img/modal/weak-pass.svg" alt="">
+                        <span class="pass-str"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup__form-checkbox">
+        <label type="checkbox" class="checkbox" name="permission">
+            <input type="checkbox" name="permission" class="real-checkbox" checked>
+            <span class="custom-checkbox"></span>
+            Даю&#160;согласие на&#160;<a class="link-permission" href="#!">обработку
+                персональных данных</a>
+        </label>
+        <label type="checkbox" class="checkbox" name="familiarized">
+            <input type="checkbox" name="familiarized" class="real-checkbox">
+            <span class="custom-checkbox"></span>
+            Ознакомлен с&#160;<a class="link-familiarized" href="#!">политикой
+                обработки персональных
+                данных</a>
+        </label>
+        <label type="checkbox" class="checkbox" name="policy">
+            <input type="checkbox" name="policy" class="real-checkbox">
+            <span class="custom-checkbox"></span>
+            Ознакомлен с&#160;<a class="link-policy" href="#!">Пользовательским
+                соглашением</a>
+        </label>
+    </div>
+
+    <div class="popup__footer">
+        <button class="popup__btn btn" type="submit" data-modal-button-err="popup-err">
+            Зарегистрироваться
+        </button>
+        <a href="#!" class="popup__already-reg">
+            Уже&#160;зарегистрирован?
+        </a>
+    </div>
+</div>
+
+<div class="overlay hidden" id="overlay-modal"></div>
+    <div class="modal hidden" data-modal="popup-err">
+    <div class="modal__cross" id="modal__crossErr">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+				d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+        </svg>
+    </div>
+    <div class="popup__header-signup">
+        <div class="logo-sm">
+            <img src="./img/header/logo-lg.png" alt="logo">
+        </div>
+        <h2 class="popup__title">Зарегистрироваться</h2>
+    </div>
+    <div class="popup__form">
+        <div class="popup__form-row">
+            <label for="name">Имя</label>
+            <input class="popup__form-input popup__form-input-err name" type="text" placeholder="Введите имя">
+        </div>
+        <div class="popup__form-row">
+            <label for="email">Email</label>
+            <input class="popup__form-input popup__form-input-err email" type="text"
+				placeholder="Введите электронную почту">
+        </div>
+        <div class="popup__form-row popup__form-row-password">
+            <label for="password">Пароль</label>
+            <input class="popup__form-input popup__form-input-err password" name="password" type="password"
+				id="typepass-err" placeholder="Придумайте пароль" />
+            <i class="form-toggler" id="toggler-err"></i>
+        </div>
+
+    </div>
+    <div class="popup__form-checkbox">
+        <label type="checkbox" class="checkbox" name="permission">
+            <input type="checkbox" name="permission" class="real-checkbox" checked>
+            <span class="custom-checkbox"></span>
+            Даю&#160;согласие на&#160;<a class="link-permission" href="#!">обработку
+                персональных данных</a>
+        </label>
+        <label type="checkbox" class="checkbox" name="familiarized">
+            <input type="checkbox" name="familiarized" class="real-checkbox">
+            <span class="custom-checkbox"></span>
+            Ознакомлен с&#160;<a class="link-familiarized" href="#!">политикой
+                обработки персональных
+                данных</a>
+        </label>
+        <label type="checkbox" class="checkbox" name="policy">
+            <input type="checkbox" name="policy" class="real-checkbox">
+            <span class="custom-checkbox"></span>
+            Ознакомлен с&#160;<a class="link-policy" href="#!">Пользовательским
+                соглашением</a>
+        </label>
+    </div>
+
+    <div class="popup__footer">
+        <button class="popup__btn btn" type="button">
+            Зарегистрироваться
+        </button>
+        <a href="#!" class="popup__already-reg">
+            Уже&#160;зарегистрирован?
+        </a>
+    </div>
+</div>
+
+<div class="overlay hidden" id="overlay-modal"></div>
+    <script src="./js/index.bundle.js"></script>
+</body>
+
+</html>
